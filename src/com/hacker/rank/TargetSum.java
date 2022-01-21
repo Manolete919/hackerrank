@@ -5,16 +5,26 @@ public class TargetSum {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int arr[] = { 9, 3, 8, 4, 5, 8 };
+		//int arr[] = { 9, 3, 8, 4, 5, 8 };
+		
+		int arr[] = { 3, 4, 5, 8, 8, 9};
 
-		System.out.println(findTargetSumWays2(arr, 12));
+		System.out.println(findTargetSumWays(arr, 13));
 
 	}
 
 	public static void calculate(int[] nums, int pos, int sum, int S) {
+		//System.out.println("out sis " + pos);
+		System.out.println("----pos " + pos + " s " + S + "SUM " + sum);
+		
 		if (pos == nums.length) {
+			System.out.println("pos " + pos + " target " + S + " SUM " + sum);
 			if (sum == S)
-				count++;
+			{
+				System.out.println("aumenta - pos " + pos);
+				count++;	
+			}
+				
 			return;
 		}
 		calculate(nums, pos + 1, sum + nums[pos], S);
