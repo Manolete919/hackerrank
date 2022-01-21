@@ -1,4 +1,7 @@
 package com.hacker.rank;
+
+import java.util.Arrays;
+
 //https://www.geeksforgeeks.org/java-program-for-longest-increasing-subsequence/amp/
 
 /* A Naive Java Program for LIS Implementation */
@@ -31,9 +34,12 @@ class LIS {
 
         // base case 
 
-        if (n == 1) 
+        if (n == 1) {
+        	System.out.println(" n:" + n);
+        			 return 1; 
+        }
 
-            return 1; 
+           
 
   
 
@@ -50,24 +56,37 @@ class LIS {
            max ending with arr[n-1] needs to be updated, then 
 
            update it */
+        
+        //System.out.println(Arrays.deepToString(arr));
 
         for (int i = 1; i < n; i++) { 
+            
+        	//System.out.println(" n:" + n  + " indice:"+ i);
 
             res = _lis(arr, i); 
-            System.out.println(" indice: "+ i  + "n: " + n + " res->" + res);
             
-            int cont = res + 1;
+            //int cont = res + 1;
 
             //inicia en 2
             // si el elemento trasero es menor que el penultimo
             
             int elemento_trasero = arr[i - 1];
             int elemento_penultimo = arr[n - 1];
-            System.out.println("t: " + elemento_trasero + "< p: " + elemento_penultimo);
-            if (elemento_trasero < elemento_penultimo && cont > max_ending_here) 
-                max_ending_here = cont; 
+            System.out.println("res: " + (res + 1 )+ " i="+ i+  ", n=" + n  + " " +elemento_trasero + " < " + elemento_penultimo);
+
+          
+            //System.out.println("t: " + elemento_trasero + "< p: " + elemento_penultimo);
+            if (elemento_trasero < elemento_penultimo && res + 1 > max_ending_here) {
+            	
+            	 max_ending_here = res + 1; 
+  
+            	 System.out.println(" Contador " + max_ending_here);
+            }
+         	 /*if(max_ending_here == 5 ) {
+        		 System.out.println("soy cinco" + (res + 1));
+        	 } */
             
-            System.out.println("max_ending_here: " + max_ending_here + " cont " + cont );
+            //System.out.println("max_ending_here: " + max_ending_here + " cont " + cont );
 
         } 
 
@@ -84,7 +103,7 @@ class LIS {
   
 
         // Return length of LIS ending with arr[n-1] 
-
+        System.out.println("-----" + max_ending_here);
         return max_ending_here; 
 
     } 
@@ -123,7 +142,9 @@ class LIS {
 
     { 
 
-        int arr[] = { 10, 22, 9, 33, 21, 50, 41, 60 }; 
+        //int arr[] = { 10, 22, 9, 33, 21, 50, 41, 60 }; 
+        int arr[] = { 5,1,7 }; 
+
 
         int n = arr.length; 
 
