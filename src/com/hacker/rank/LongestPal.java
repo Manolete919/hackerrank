@@ -4,8 +4,9 @@ public class LongestPal {
 
 	public static void main(String[] args) {
 		
-		System.out.println(longEstPal("racecar"));
+		//System.out.println(longEstPal("racecar"));
 		//System.out.println(longEstPal("forgeeksskeegfor"));
+		System.out.println(longEstPal("osoracecarforgeeksskeegfor"));
 		
 
 	}
