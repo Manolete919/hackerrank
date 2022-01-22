@@ -63,6 +63,8 @@ class LIS {
             
         	//System.out.println(" n:" + n  + " indice:"+ i);
 
+        	//Primero se ejecuta y dependiendo del resultado
+        	//Pregunto si debo incrementar dentro del For el contador
             res = _lis(arr, i); 
             
             //int cont = res + 1;
@@ -70,18 +72,32 @@ class LIS {
             //inicia en 2
             // si el elemento trasero es menor que el penultimo
             
+            //Posicion del For que Toca Evaluar
             int elemento_trasero = arr[i - 1];
+            //Elemento Padre
             int elemento_penultimo = arr[n - 1];
-            System.out.println("res: " + (res + 1 )+ " i="+ i+  ", n=" + n  + " " +elemento_trasero + " < " + elemento_penultimo);
+            
+            //System.out.println("res: " + (res + 1 )+ " i="+ i+  ", n=" + n  + " " +elemento_trasero + " < " + elemento_penultimo);
 
+            System.out.println(elemento_trasero +" < "+ elemento_penultimo );
           
             //System.out.println("t: " + elemento_trasero + "< p: " + elemento_penultimo);
-            if (elemento_trasero < elemento_penultimo && res + 1 > max_ending_here) {
+            System.out.println(" max_ending_here " + max_ending_here);
+            if (elemento_trasero < elemento_penultimo /*&& res + 1 > max_ending_here*/) {
             	
-            	 max_ending_here = res + 1; 
+            	// solo actualizo, si el incremento es mayor al que era mayor
+            	if(res + 1 > max_ending_here) {
+                  	 max_ending_here = res + 1; 
+                   	 //System.out.println(" ------max_ending_here " + max_ending_here);
+            		
+            	}else {
+            		System.out.println(" NO ENTRO : res " + res + " > " +  max_ending_here );
+            	}
+
   
-            	 System.out.println(" Contador " + max_ending_here);
+            	 //System.out.println(" Contador " + max_ending_here);
             }
+           
          	 /*if(max_ending_here == 5 ) {
         		 System.out.println("soy cinco" + (res + 1));
         	 } */
@@ -89,6 +105,7 @@ class LIS {
             //System.out.println("max_ending_here: " + max_ending_here + " cont " + cont );
 
         } 
+        System.out.println("FOR:  " + n);
 
   
 
@@ -103,7 +120,7 @@ class LIS {
   
 
         // Return length of LIS ending with arr[n-1] 
-        System.out.println("-----" + max_ending_here);
+        System.out.println("max_ref: " + max_ref);
         return max_ending_here; 
 
     } 
@@ -143,7 +160,8 @@ class LIS {
     { 
 
         //int arr[] = { 10, 22, 9, 33, 21, 50, 41, 60 }; 
-        int arr[] = { 5,1,7 }; 
+        int arr[] = { 5,8,3,9 }; 
+       // int[] arr = {5,6,8,3,9,10};
 
 
         int n = arr.length; 
