@@ -12,7 +12,8 @@ public class TestLinkedList {
 		//
 		linkedList.append(30);
 		linkedList.append(40);
-
+		
+		linkedList.printAll();
 	}
 
 }

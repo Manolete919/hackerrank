@@ -23,18 +23,23 @@ class LinkedList {
 			// se inicializa, y se devuelve. Esto la primera vez
 			head = new NodeLinkedList(data);
 			return;
-		}else {
-			System.out.println(" data " + head.data);
 		}
 		
 		NodeLinkedList current = head;
-		System.out.println(" current " + current.data);
+		
+		
 		
 		while(current.next != null) {
+		
 			current = current.next;
+			
 		}
 		//lo agrega al final
+		// current.next correspnde a la ultima referencia
+		// current es el ultimo objeto
 		current.next = new  NodeLinkedList(data);
+		
+		
 	}
 	
 	public void prepend(int data) {
@@ -56,13 +61,21 @@ class LinkedList {
 		NodeLinkedList current = head;
 		// walk up until the value is the one 
 		while(current.next != null) {
-			if(current.next.data == data) {
+			if(current.next.data == data) { 
 				// it is gonna stop one before we want to delete
 				// walk around it
 				current.next = current.next.next;
 				return;
 			}
 			current = current.next;
+		}
+	}
+	
+	public void printAll(){
+		NodeLinkedList print = head;
+		while(print.next != null) {
+			System.out.println(print.next.data);
+			print  = print.next;
 		}
 	}
 }
