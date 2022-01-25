@@ -4,12 +4,14 @@ public class SubstringWithoutRepeatedChar {
 
 	public static void main(String[] args) {
 
-		String s = "abcfghamnopqrstu";
-		//String s = "abcfghabcdefhi";
+		//String s = "abcfghamnopqrstu";
+		//String s = "bbbbbbbbbbbbc";
+		//String s = "pwwkew";
+		String s = "abcexbmz";
 		
 		int size = 0;
 		int theLongest = 1;
-		String finalSubstring = "";
+		String finalSubstring = s.charAt(0)+"";
 		
 		while(size < s.length()-1) {
 			//System.out.println("contador: " + size );
@@ -19,7 +21,8 @@ public class SubstringWithoutRepeatedChar {
 				theLongest = substring.length();
 				finalSubstring = substring;
 			}
-			size += substring.length();
+			size ++;	
+			//size += substring.length();
 			
 		
 		}
