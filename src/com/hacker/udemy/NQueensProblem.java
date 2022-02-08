@@ -93,8 +93,22 @@ public class NQueensProblem {
 
 	public static void main(String[] args) {
 		
-		NQueensProblem problem = new NQueensProblem(4);
-		problem.solve();
+	//	NQueensProblem problem = new NQueensProblem(4);
+	//	problem.solve();/
+		/*int a = Integer.MIN_VALUE;
+		System.out.println(a);
+		int b = Integer.MAX_VALUE;
+		System.out.println(b);*/
+		
+		for(int i = 0; i < 10; i ++ ) {
+			System.out.println("contador " + i);
+			if(i == 5) {
+				
+				return;
+			}
+			
+		}
+		 
 
 
 	}

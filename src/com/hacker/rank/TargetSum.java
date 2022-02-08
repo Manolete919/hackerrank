@@ -7,21 +7,23 @@ public class TargetSum {
 		// TODO Auto-generated method stub
 		//int arr[] = { 9, 3, 8, 4, 5, 8 };
 		
-		int arr[] = { 3, 4, 5, 8, 8, 9};
+		//int arr[] = { 3, 4, 5, 8, 8, 9};
+		
+		int arr[] = { 5,5,5};
 
-		System.out.println(findTargetSumWays(arr, 13));
+		System.out.println(findTargetSumWays2(arr, 0));
 
 	}
 
 	public static void calculate(int[] nums, int pos, int sum, int S) {
 		//System.out.println("out sis " + pos);
-		System.out.println("----pos " + pos + " s " + S + "SUM " + sum);
+		//System.out.println("----pos " + pos + " s " + S + "SUM " + sum);
 		
 		if (pos == nums.length) {
-			System.out.println("pos " + pos + " target " + S + " SUM " + sum);
+			//System.out.println("pos " + pos + " target " + S + " SUM " + sum);
 			if (sum == S)
 			{
-				System.out.println("aumenta - pos " + pos);
+				//System.out.println("aumenta - pos " + pos);
 				count++;	
 			}
 				
@@ -41,7 +43,7 @@ public class TargetSum {
 		for (int i = 0; i < nums.length; i++) {
 			sum = sum + nums[i];
 		}
-		System.out.println("suma " + sum );
+		//System.out.println("suma " + sum );
 			
 		if (S < -sum || S > sum)
 			return 0;
@@ -55,6 +57,15 @@ public class TargetSum {
 					dp[i][j] = dp[i][j] + dp[i - 1][j - nums[i - 1]];
 			}
 		}
+		
+		for (int ii = 0; ii < nums.length + 1; ii++) {
+			for (int jj = 0; jj < sum * 2 + 1; jj++) {
+				System.out.print(dp[ii][jj] + "\t");
+			}
+			System.out.println("");
+		}
+		
+		
 		return dp[nums.length][sum + S];
 	}
 
